@@ -1,0 +1,95 @@
+K-MEANS
+
+1. Load the Iris dataset using load_iris().
+2. Extract the feature data (x) from the dataset.
+3. Create a KMeans instance with:
+a. n_clusters=3 (since there are 3 species in the Iris dataset).
+b. init='k-means++' (to initialize centroids efficiently).
+c. random_state=42 (for reproducibility).
+d. n_init=10 (number of initializations runs).
+4. Use the fit() method on the feature data (x) to perform clustering.
+5. Retrieve the cluster centroids using the cluster_centers_ attribute.
+6. Print the centroids for each of the 3 clusters.
+7. Prompt the user to input values for sepal length, sepal width, petal length, and petal width.
+8. Combine the input values into a NumPy array (sample).
+9. Use the predict() method to determine which cluster the input data belongs to.
+10. Print the predicted cluster.
+
+--------------------------------------------------------------------------------------
+DECISION TREE
+
+1. Use load_iris() to load the Iris dataset.
+2. Extract features (x) and target labels (y).
+3. Divide the dataset into training and testing sets using train_test_split().
+4. Set test_size=0.3 (30% of data for testing) and random_state=1 for reproducibility.
+5. Create a DecisionTreeClassifier instance.
+6. Train the classifier using the fit() method on the training data (x_train, y_train).
+7. Use the trained model's predict() method to predict the labels for the test data (x_test).Calculate the accuracy using metrics.accuracy_score(y_test, y_pred).
+8. Print the accuracy.
+9. Prompt the user to input sample data (sepal length, sepal width, petal length, petal width).
+10. Combine the input values into a feature array (sample).
+11. Use the trained model to predict the class of the sample.
+12. Map the numeric prediction to the class name using iris.target_names.
+13. Use tree.plot_tree() to visualize the decision tree.
+14. Display feature names and class names for clarity.
+15. Show the visualization using plt.show().
+
+
+------------------------------------------------------------------------------------------------------
+
+LINEAR REGRESSION
+
+1. Import necessary libraries.
+2. Load the Iris dataset using load_iris().
+3. Extract the feature data (x) and target labels (y).
+4. Use train_test_split() to divide the dataset into training and testing sets.
+5. Set test_size=0.3 (30% data for testing) and random_state=1 for reproducibility.
+6. Create an instance of the LinearRegression model.
+7. Train the model using the fit() method on the training data (x_train, y_train).
+8. Use the predict() method on the test data (x_test) to generate predictions (y_pred).
+9. Calculate the Mean Squared Error (MSE) using mean_squared_error(y_test, y_pred).
+10. Calculate the R² Score using r2_score(y_test, y_pred).
+11. Print the MSE and R² score to evaluate the model's performance.
+
+
+--------------------------------------------------------------------------------------------------------
+
+NAIVE_BAYES
+
+1. Import required libraries, including load_iris from sklearn.datasets, train_test_split from sklearn.model_selection, GaussianNB from sklearn.naive_bayes, and metrics from sklearn.
+2. Load Iris dataset.
+3. Extract features (x) and target labels (y) from the dataset.
+4. Use train_test_split() to split the dataset into training (x_train, y_train) and testing sets (x_test, y_test).
+5. Set the test size to 30% (test_size=0.3) and random_state=1.
+6. Create an instance of the GaussianNB classifier.
+7. Train the classifier using the fit() method on the training data (x_train, y_train).
+8. Use the predict() method on x_test to make predictions.
+9. Calculate and display the accuracy using metrics.accuracy_score().
+10. Prompt the user to enter the features of a flower sample (sepal length, sepal width, petal length, petal width).
+11. Store the input as a feature array.
+12. Use the predict() method to classify the input sample.
+13. Map the numeric prediction to the corresponding class name using iris.target_names.
+14. Print the numeric prediction.
+15. Print the corresponding class name.
+
+
+-----------------------------------------------------------------------------------------------------
+
+KNN
+
+1. Import required libraries.
+2. Load Iris dataset.
+3. Extract features (x) and target labels (y) from the dataset.
+4. Use train_test_split() to split the dataset into training (x_train, y_train) and testing sets (x_test, y_test).
+5. Set the test size to 30% (test_size=0.3) and random_state=1.
+6. Create an instance of KNeighborsClassifier with n_neighbors=3.
+7. Train the classifier using the training data (x_train, y_train) with the fit() method.
+8. Use the predict() method on x_test to make predictions.
+9. Calculate and display the accuracy using metrics.accuracy_score().
+10. Prompt the user to enter the features of a flower sample
+11. Use the predict() method to classify the input sample.
+12. Map the numeric prediction to the corresponding class name using iris.target_names.
+13. Display Results.
+
+
+
