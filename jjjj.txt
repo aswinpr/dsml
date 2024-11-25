@@ -1,0 +1,160 @@
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn import metrics
+import matplotlib.pyplot as plt
+iris = load_iris()
+x = iris.data
+y = iris.target
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
+c_dt = DecisionTreeClassifier(random_state=1)
+c_dt.fit(x_train, y_train)
+
+# Predict on the test set
+y_pred = c_dt.predict(x_test)
+
+# Print the accuracy
+print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
+
+# Enter sample data for prediction
+print("Enter the sample data:")
+a = float(input("Enter sepal length in cm: "))
+b = float(input("Enter sepal width in cm: "))
+c = float(input("Enter petal length in cm: "))
+d = float(input("Enter petal width in cm: "))
+sample = [[a, b, c, d]]
+
+# Predict class for the sample data
+pred = c_dt.predict(sample)
+pred_v = [iris.target_names[p] for p in pred]
+print("Predicted class:", pred_v)
+plt.figure(figsize=(12, 8))  # Adjust the figure size as needed
+plot_tree(c_dt, filled=True, feature_names=iris.feature_names, class_names=iris.target_names)
+plt.title("Decision Tree Visualization")
+plt.show()
+
+
+
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import metrics
+
+iris=load_iris()
+x=iris.data
+#print(x)
+y=iris.target
+#print(y)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.3,random_state=1)
+c_knn = KNeighborsClassifier(n_neighbors=3)
+c_knn.fit(x_train,y_train)
+y_pred = c_knn.predict(x_test)
+
+print("accuracy",metrics.accuracy_score(y_test,y_pred))
+print("enter sample data: ")
+a = int(input("enter sepal length in cm : "))
+b = int(input("enter sepal width in cm : "))
+c = int(input("enter petal length in cm : "))
+d = int(input("enter petal width in cm : "))
+
+sample = [[a,b,c,d]]
+
+pred = c_knn.predict(sample)
+pred_v = [iris.target_names[p] for p in pred]
+print(pred_v)
+
+
+
+
+
+from sklearn.datasets import load_iris
+import numpy as np
+from sklearn.cluster import KMeans
+iris = load_iris()
+x = iris.data
+# Set n_clusters to 3 since the Iris dataset has 3 species
+kmeans = KMeans(n_clusters=3, init='k-means++', random_state=42, n_init=10)
+kmeans.fit(x)
+centroids = kmeans.cluster_centers_
+print("Centroids for Cluster 1:")
+print(centroids[0])
+print("Centroids for Cluster 2:")
+print(centroids[1])
+print("Centroids for Cluster 3:")
+print(centroids[2])
+print("Enter the sample data")
+a = float(input("Enter sepal length in cm: "))
+b = float(input("Enter sepal width in cm: "))
+c = float(input("Enter petal length in cm: "))
+d = float(input("Enter petal width in cm: "))
+sample = np.array([[a, b, c, d]])
+# Predict the cluster for the input values
+predicted_cluster = kmeans.predict(sample)
+print("The input belongs to Cluster:", predicted_cluster[0])
+
+
+
+
+
+
+import numpy as np
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn import metrics
+import matplotlib.pyplot as plt
+
+iris = load_iris()
+X = iris.data[:, :3]
+y = iris.data[:, 2]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+print("Mean Absolute Error:", metrics.mean_absolute_error(y_test, y_pred))
+print("Mean Squared Error:", metrics.mean_squared_error(y_test, y_pred))
+print("Root Mean Squared Error:", np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+
+plt.scatter(y_test, y_pred)
+plt.plot([y.min(), y.max()], [y.min(), y.max()], 'r--')
+plt.xlabel("Actual Petal Length")
+plt.ylabel("Predicted Petal Length")
+plt.title("Actual vs Predicted Petal Length")
+plt.show()
+
+
+
+from sklearn.datasets import load_iris
+from sklearn import metrics
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import train_test_split
+
+iris=load_iris()
+x=iris.data
+y=iris.target
+
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3,random_state=1)
+G_nb = GaussianNB()
+G_nb.fit(x_train,y_train)
+
+y_pred = G_nb.predict(x_test)
+
+
+print("accuracy",metrics.accuracy_score(y_test,y_pred))
+print("enter sample data: ")
+a = int(input("enter sepal length in cm : "))
+b = int(input("enter sepal width in cm : "))
+c = int(input("enter petal length in cm : "))
+d = int(input("enter petal width in cm : "))
+
+sample = [[a,b,c,d]]
+
+pred = G_nb.predict(sample)
+pred_v = [iris.target_names[p] for p in pred]
+print(pred_v)
